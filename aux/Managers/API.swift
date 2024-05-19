@@ -7,10 +7,11 @@
 
 import Foundation
 
-class API {
+class APIManager {
+    static let shared = APIManager()
     let baseUrl = "http://localhost:3000"
     let cookie: String? = nil
-    
+
     init() {
 //        self.cookie = cookie
     }
@@ -37,41 +38,43 @@ class API {
             throw APIError.decodingError
         }
     }
-    
-    
-    func post<T: Encodable, U: Codable>(for path: String, body: T, responseType: U.Type) async throws -> U {
-           guard let url = URL(string: baseUrl + path) else {
-               throw APIError.invalidURL
-           }
-           var request = URLRequest(url: url)
-           request.httpMethod = "POST"
-           request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-           
-           if let cookie = cookie {
-               request.addValue(cookie, forHTTPHeaderField: "Cookie")
-           }
 
-           do {
-               let encoder = JSONEncoder()
-               encoder.keyEncodingStrategy = .convertToSnakeCase
-               request.httpBody = try encoder.encode(body)
-           } catch {
-               throw APIError.encodingError
-           }
+    func post<T: Encodable, U: Codable>(for path: String, body: T, responseType: U.Type? = nil) async throws -> U? {
+        guard let url = URL(string: baseUrl + path) else {
+            throw APIError.invalidURL
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-           let (data, response) = try await URLSession.shared.data(for: request)
-           guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-               throw APIError.invalidResponse
-           }
+        if let cookie = cookie {
+            request.addValue(cookie, forHTTPHeaderField: "Cookie")
+        }
 
-           do {
-               let decoder = JSONDecoder()
-               decoder.keyDecodingStrategy = .convertFromSnakeCase
-               return try decoder.decode(U.self, from: data)
-           } catch {
-               throw APIError.decodingError
-           }
-       }
+        do {
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            request.httpBody = try encoder.encode(body)
+        } catch {
+            throw APIError.encodingError
+        }
+
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw APIError.invalidResponse
+        }
+        if responseType == nil {
+            return nil
+        }
+
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try decoder.decode(U.self, from: data)
+        } catch {
+            throw APIError.decodingError
+        }
+    }
 }
 
 enum APIError: Error {

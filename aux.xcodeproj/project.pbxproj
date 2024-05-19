@@ -14,6 +14,7 @@
 		D5240B0D2BFA850F00B8E90B /* CreateQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5240B0C2BFA850F00B8E90B /* CreateQueue.swift */; };
 		D5240B0F2BFA851D00B8E90B /* ActiveQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5240B0E2BFA851D00B8E90B /* ActiveQueues.swift */; };
 		D5240B112BFA8F0C00B8E90B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5240B102BFA8F0C00B8E90B /* API.swift */; };
+		D5240B132BFA96C800B8E90B /* AuxQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5240B122BFA96C800B8E90B /* AuxQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D5240B0C2BFA850F00B8E90B /* CreateQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQueue.swift; sourceTree = "<group>"; };
 		D5240B0E2BFA851D00B8E90B /* ActiveQueues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveQueues.swift; sourceTree = "<group>"; };
 		D5240B102BFA8F0C00B8E90B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D5240B122BFA96C800B8E90B /* AuxQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxQueue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		D5240B072BFA835600B8E90B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D5240B122BFA96C800B8E90B /* AuxQueue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5240B0F2BFA851D00B8E90B /* ActiveQueues.swift in Sources */,
+				D5240B132BFA96C800B8E90B /* AuxQueue.swift in Sources */,
 				D5240B0D2BFA850F00B8E90B /* CreateQueue.swift in Sources */,
 				D5240B0B2BFA84EE00B8E90B /* TabBarViewController.swift in Sources */,
 				D5240AF22BFA82BE00B8E90B /* AppDelegate.swift in Sources */,

@@ -27,6 +27,7 @@ class CreateQueue: UIViewController {
     
     func setupCreateQueueButton() {
         view.addSubview(createQueueButton)
+        createQueueButton.addTarget(self, action: #selector(onCreateQueue), for: .touchUpInside)
         NSLayoutConstraint.activate([
             createQueueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             createQueueButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
@@ -34,5 +35,17 @@ class CreateQueue: UIViewController {
             createQueueButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
-}
 
+    @objc func onCreateQueue() {
+        Task {
+            do {
+                let _ = try await createQueue()
+            } catch {}
+        }
+    }
+    
+    func createQueue() async throws {
+        struct Body: Codable {}
+        let _ = try await APIManager.shared.post(for: "/queue", body: Body(), responseType: [AuxQueue].self)
+    }
+}
