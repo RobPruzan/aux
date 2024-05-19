@@ -14,4 +14,7 @@
 2. Run `bun migrate:run`
 3. Run `bun run dev`
 
-
+## Tech stack
+- UIKit (IOS)
+- Bun + elysia (backend)
+- sqlite + drizzle (db)
