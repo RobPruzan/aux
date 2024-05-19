@@ -12,10 +12,10 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let screen1 = HomeViewController()
-        let screen2 = ProfileViewController()
-        screen1.title = "Home"
-        screen2.title = "Profile"
+        let screen1 = CreateQueue()
+        let screen2 = ActiveQueues()
+        screen1.title = "Create Queue"
+        screen2.title = "Active Queues"
         
         screen1.navigationItem.largeTitleDisplayMode = .always
         screen2.navigationItem.largeTitleDisplayMode = .always

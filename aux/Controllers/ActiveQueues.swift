@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  ProfileViewController.swift
 //  aux
 //
 //  Created by Robert Pruzan on 5/19/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class ActiveQueues: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
