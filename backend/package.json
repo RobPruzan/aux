@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts",
+    "migrate:generate": "drizzle-kit generate",
+    "migrate:run": "bun run migrate.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.10",
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "drizzle-kit": "^0.21.2"
+  },
+  "module": "src/index.js"
+}
