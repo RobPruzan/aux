@@ -8,8 +8,10 @@
     "migrate:run": "bun run src/migrate.ts"
   },
   "dependencies": {
+    "@elysiajs/jwt": "^1.0.2",
     "drizzle-orm": "^0.30.10",
-    "elysia": "latest"
+    "elysia": "latest",
+    "ulid": "^2.3.0"
   },
   "devDependencies": {
     "bun-types": "latest",

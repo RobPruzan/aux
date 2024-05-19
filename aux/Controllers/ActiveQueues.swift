@@ -11,6 +11,7 @@ class ActiveQueues: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Active Queues"
 
         view.backgroundColor = .systemBackground
         // Do any additional setup after loading the view.

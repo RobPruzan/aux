@@ -45,6 +45,8 @@ class CreateQueue: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Create Queue"
+
 
         view.backgroundColor = .systemBackground
         setupMainStack()

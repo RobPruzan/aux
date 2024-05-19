@@ -15,9 +15,7 @@ class TabBarViewController: UITabBarController {
         let screen1 = CreateQueue()
         let screen2 = ActiveQueues()
         
-        screen1.title = "Create Queue"
-        screen2.title = "Active Queues"
-        
+                
         screen1.navigationItem.largeTitleDisplayMode = .always
         screen2.navigationItem.largeTitleDisplayMode = .always
         
